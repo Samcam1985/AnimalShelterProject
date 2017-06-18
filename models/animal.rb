@@ -32,4 +32,12 @@ def self.delete_all
   sql = "DELETE FROM animals"
   SqlRunner.run(sql)
 end
+
+def self.adoptable
+  sql = "SELECT * FROM animals WHERE adoptable = 'TRUE'"
+  adoptable_animals = SqlRunner.run(sql)
+  return results.map { |hash| Animal.new(hash)}
+end
+
+
 end
