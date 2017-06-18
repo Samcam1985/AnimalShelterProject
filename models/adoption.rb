@@ -31,4 +31,21 @@ def self.delete_all
   sql = "DELETE FROM adoptions"
   SqlRunner.run(sql)
 end
+
+def animal
+  sql = "SELECT * FROM animals INNER JOIN adoptions
+  ON adoptions.animal_id = animals.id
+  WHERE animals.id = #{@animal_id}"
+  adopted_animals = SqlRunner.run(sql)
+  return Animal.new(adopted_animals.first)
+end
+
+def owner
+  sql = "SELECT * FROM owners INNER JOIN adoptions
+  ON adoptions.owner_id = owners.id
+  WHERE owners.id = #{@owner_id}"
+  adoptive_owners = SqlRunner.run(sql)
+  return Owner.new(adoptive_owners.first)
+end
+
 end

@@ -2,6 +2,8 @@ require_relative('../models/owner.rb')
 require_relative('../models/adoption.rb')
 require_relative('../models/animal.rb')
 
+require('pry-byebug')
+
 
 
 Adoption.delete_all
@@ -147,4 +149,5 @@ adoption3 = Adoption.new ({
 
 adoption3.save
 
-
+binding.pry
+nil
