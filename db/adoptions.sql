@@ -14,10 +14,7 @@ CREATE TABLE animals
 id SERIAL4 PRIMARY KEY,
 name VARCHAR(255),
 admission_date DATE,
-adoptable VARCHAR(255),
-type VARCHAR(255)
-);
-
+adoptable BOOLEAN,
 CREATE TABLE adoptions
 (
 id SERIAL4 PRIMARY KEY,

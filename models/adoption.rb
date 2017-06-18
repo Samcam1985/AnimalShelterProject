@@ -2,19 +2,20 @@ require_relative('../db/sql_runner')
 
 class Adoption
 
-  attr_reader( :id, :date, :owner_id, :animal_id)
+  attr_accessor( :id, :date_of_adoption, :owner_id, :animal_id)
+
 
 def initialize(options)
   @id = options['id'].to_i
-  @date = options['date']
+  @date_of_adoption = options['date_of_adoption']
   @owner_id = options['owner_id']
   @animal_id = options['animal_id']
 end
 
 def save()
-  sql = "INSERT INTO adoptions (date, owner_id, animal_id) 
+  sql = "INSERT INTO adoptions (date_of_adoption, owner_id, animal_id) 
   VALUES (
-  '#{date}', #{owner_id}, #{animal_id})
+  '#{@date_of_adoption}', #{@owner_id}, #{@animal_id})
   RETURNING *"
   results = SqlRunner.run(sql)
   @id = results.first()['id'].to_i
