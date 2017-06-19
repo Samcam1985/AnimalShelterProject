@@ -45,6 +45,18 @@ def self.not_adoptable
   return not_adoptable_animals.map { |hash| Animal.new(hash)}
 end
 
+def self.animals_adopted
+  sql = "SELECT * FROM animals INNER JOIN adoptions ON animals.id = adoptions.animal_id"
+  animals_adopted = SqlRunner.run(sql)
+  return animals_adopted.map { |hash| Animal.new(hash)}
+end
+
+def self.animals_not_adopted
+  sql = "SELECT * FROM animals WHERE animals.id NOT IN (SELECT animal_id FROM adoptions)"
+  animals_not_adopted = SqlRunner.run(sql)
+  return animals_not_adopted.map { |hash| Animal.new(hash)}
+end
+
 def self.find(id)
   sql = "SELECT * FROM animals WHERE id=#{id};"
   results = SqlRunner.run(sql)

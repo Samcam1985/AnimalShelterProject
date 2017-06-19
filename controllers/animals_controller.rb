@@ -6,7 +6,7 @@ require_relative('../models/owner.rb')
 require_relative('../models/adoption.rb')
 
 get '/animals' do
-  @animals = Animal.all()
+  @animals = Animal.animals_not_adopted()
   erb (:"animals/index")
 end
 

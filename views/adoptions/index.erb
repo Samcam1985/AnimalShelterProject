@@ -1,18 +1,24 @@
 <h1>Adoptions</h1>
 
+
+
+<div>
 <p class="btn--wrapper">
-<a class="btn btn--action" href="/adoptions/new">Add a New Adoption</a>
-
-<a class="btn btn--action" href="adoptions/delete">Delete an Adoption</a>
+  <a class="btn btn--action" href="/adoptions/new">Add a New Adoption</a>
 </p>
+</div>
 
-<ul>
-
-<% for adoption in @adoptions %>
-<li>
-<p><%= adoption.animal.name%> <%= adoption.owner.name%> </p>
-
-</li>
-<%end%>
-</ul>
+<div style="border:1px solid #CCCCCC;padding:15px;">
+  <% for adoption in @adoptions %>
+    <div>
+      <span style="font-size:15pt; font-weight:bold; color:#006666;">Animal</span>
+      <p><%= adoption.animal.name%></p>
+      <span style="font-size:15pt; font-weight:bold; color:#006666;">Owner</span>
+        <p><%= adoption.owner.name%></p>
+      <form action="/adoptions/<%=adoption.id %>/delete" method="POST">
+      <input class="btn btn--delete" type="submit" value="delete" />
+      </form>
+    </div>
+  <%end%>
+</div>
 

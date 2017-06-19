@@ -3,6 +3,8 @@ require('pry-byebug')
 require_relative('../models/adoption.rb')
 require_relative('../models/owner.rb')
 require_relative('../models/adoption.rb')
+require 'date'
+
 
 get '/adoptions' do
   @adoptions = Adoption.all()
@@ -22,7 +24,7 @@ post '/adoptions' do
 end
 
 post '/adoptions/:id/delete' do
-  Adoption.destroy(params[:id])
+  Adoption.delete(params[:id])
   redirect to("/adoptions")
 end
 
@@ -30,7 +32,7 @@ end
 post '/adoptions/new' do
   @adoption = Adoption.new( params )
   @adoption.save()
-  erb( :create)
+  erb( :"/adoptions/confirmation")
 end
 
 get '/owners/:id/edit' do

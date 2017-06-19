@@ -17,8 +17,15 @@ def save()
   VALUES (
   '#{@date_of_adoption}', #{@owner_id}, #{@animal_id})
   RETURNING *"
-  results = SqlRunner.run(sql)
+results = SqlRunner.run(sql)
   @id = results.first()['id'].to_i
+
+  update(@animal_id)
+end
+
+def update(animal_id)
+  sql = "UPDATE animals SET adoptable = 'FALSE' where id = #{animal_id}"
+  SqlRunner.run(sql)
 end
 
 def self.all()
