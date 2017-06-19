@@ -28,18 +28,15 @@ post '/owners/new' do
   
 end
 
-post '/owners/:id/delete' do
-  Owner.destroy(params[:id])
+get '/owners/:id/delete' do
+  Owner.delete(params[:id])
   redirect to("/owners")
 end
 
 
 get '/owners/:id' do 
   @owner = Owner.find( params[:id])
-  erb( :show)
+  erb( :owners)
   end
 
-  post '/owners/:id/delete' do
-    Owners.delete(params[:id])
-    redirect to("/owners")
-  end
+  

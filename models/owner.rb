@@ -41,4 +41,7 @@ def self.delete(id)
   sql = "DELETE FROM owners where id =#{id}"
   SqlRunner.run(sql)
 end
+
+
+
 end
