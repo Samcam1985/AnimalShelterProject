@@ -29,5 +29,5 @@ end
 post '/animals/new' do
   @animal = Animal.new( params )
   @animal.save()
-  erb( :create)
+  erb( :"animals/confirmation")
 end

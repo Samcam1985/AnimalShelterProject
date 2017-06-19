@@ -7,6 +7,7 @@ require 'date'
 
 
 get '/adoptions' do
+  @owners = Owner.all
   @adoptions = Adoption.all()
   erb (:"adoptions/index")
 end
