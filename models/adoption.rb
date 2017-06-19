@@ -60,6 +60,13 @@ def self.find(id)
   result = SqlRunner.run(sql)
   return Adoption.new(result.first)
 end
- 
+
+def self.delete(id)
+  sql = "DELETE FROM adoptions where id =#{id}"
+  SqlRunner.run(sql)
+end
 
 end
+ 
+
+

@@ -36,4 +36,9 @@ def self.find(id)
   results = SqlRunner.run(sql)
   return Owner.new(results.first)
 end
+
+def self.delete(id)
+  sql = "DELETE FROM owners where id =#{id}"
+  SqlRunner.run(sql)
+end
 end
