@@ -23,3 +23,9 @@ post '/animals/:id/delete' do
   Owner.destroy(params[:id])
   redirect to("/animals")
 end
+
+post '/animals/new' do
+  @animal = Animal.new( params )
+  @animal.save()
+  erb( :create)
+end
