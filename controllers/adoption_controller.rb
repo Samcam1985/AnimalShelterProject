@@ -31,13 +31,13 @@ post '/adoptions/new' do
   erb( :create)
 end
 
-# get '/owners/:id/edit' do
-#   @owner = Owner.find(params["id"])
-#   @adoption = Adoption.all()
-#   erb(:edit)
-# end
+get '/owners/:id/edit' do
+  @owner = Owner.find(params["id"])
+  @adoption = Adoption.all()
+  erb(:edit)
+end
 
-# get '/owners/:id' do 
-#   @owner = Owner.find( params[:id])
-#   erb( :show)
-#   end
+get '/owners/:id' do 
+  @owner = Owner.find( params[:id])
+  erb( :show)
+end

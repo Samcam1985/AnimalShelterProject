@@ -1,0 +1,18 @@
+<h1>Animals</h1>
+
+<table>
+<tr>
+<th>Name</th>
+<th> Admission Date</th>
+<th> Adoptable</th>
+<th> Type</th>
+</tr>
+<% for animal in @animals %>
+<tr>
+<td><%= animal.name %></td>
+<td><%= animal.admission_date%></td>
+<td><%= animal.adoptable ? "Yes" : "No" %></td>
+<td><%= animal.type %></td>
+</tr>
+<%end%>
+</table>
