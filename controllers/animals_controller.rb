@@ -15,12 +15,12 @@ end
 
 post '/animals' do
   animal = Animal.new(params)
-  owner.save
+  animal.save
   redirect to("/animals")
 end
 
 post '/animals/:id/delete' do
-  Owner.destroy(params[:id])
+  Animal.destroy(params[:id])
   redirect to("/animals")
 end
 

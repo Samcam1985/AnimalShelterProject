@@ -42,6 +42,8 @@ end
 def self.not_adoptable
   sql = "SELECT * FROM animals WHERE adoptable = 'FALSE'"
   not_adoptable_animals = SqlRunner.run(sql)
+  return not_adoptable_animals.map { |hash| Animal.new(hash)}
+end
 
 
 
