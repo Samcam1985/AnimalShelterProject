@@ -24,7 +24,7 @@ end
 post '/owners/new' do
   @owner = Owner.new( params )
   @owner.save()
-  erb( :create)
+  erb( :"owners/confirmation")
   
 end
 
