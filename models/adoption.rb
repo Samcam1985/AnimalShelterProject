@@ -19,12 +19,10 @@ def save()
   RETURNING *"
 results = SqlRunner.run(sql)
   @id = results.first()['id'].to_i
-
-  update(@animal_id)
 end
 
-def update(animal_id)
-  sql = "UPDATE animals SET adoptable = 'FALSE' where id = #{animal_id}"
+def update(animal_id, adoptable)
+  sql = "UPDATE animals SET adoptable = '#{adoptable}' where id = #{animal_id}"
   SqlRunner.run(sql)
 end
 
@@ -55,15 +53,17 @@ def owner
   return Owner.new(adoptive_owners.first)
 end
 
-def self.find(id)
+def find(id)
   sql = "SELECT * FROM adoptions WHERE id=#{id};"
   result = SqlRunner.run(sql)
   return Adoption.new(result.first)
 end
 
-def self.delete(id)
+def delete(id)
+  adoption = find(id)
   sql = "DELETE FROM adoptions where id =#{id}"
   SqlRunner.run(sql)
+  return adoption.animal_id
 end
 
 end

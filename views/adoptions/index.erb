@@ -17,6 +17,7 @@
         <p><%= adoption.owner.name%></p>
       <form action="/adoptions/<%=adoption.id %>/delete" method="POST">
       <input class="btn btn--delete" type="submit" value="delete" />
+      <input type="hidden" name="animal_id" value="<%=adoption.animal_id %>" />
       </form>
     </div>
   <%end%>
