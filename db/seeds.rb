@@ -18,7 +18,7 @@ owner1 = Owner.new ({
 owner1.save
 
 owner2 = Owner.new ({
-  'name' => "Richard"
+  'name' => "Bob"
   })
 
 owner2.save

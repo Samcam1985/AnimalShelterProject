@@ -48,4 +48,11 @@ def owner
   return Owner.new(adoptive_owners.first)
 end
 
+def self.find(id)
+  sql = "SELECT * FROM adoptions WHERE id=#{id};"
+  result = SqlRunner.run(sql)
+  return Adoption.new(result.first)
+end
+ 
+
 end

@@ -1,3 +1,4 @@
+
 require('pry-byebug')
 require_relative('../models/adoption.rb')
 require_relative('../models/owner.rb')
@@ -9,8 +10,9 @@ get '/adoptions' do
 end
 
 get '/adoptions/new' do
-  @adoptions = Adoption.all
-  erb (:"adoptions/new")
+  @owners = Owner.all
+  @animals = Animal.all
+  erb (:"/adoptions/new")
 end
 
 post '/adoptions' do
@@ -37,7 +39,8 @@ get '/owners/:id/edit' do
   erb(:edit)
 end
 
-get '/owners/:id' do 
-  @owner = Owner.find( params[:id])
-  erb( :show)
+get '/animals/:id/edit' do
+  @owner = Animal.find(params["id"])
+  @animal = Adoption.all()
+  erb(:edit)
 end

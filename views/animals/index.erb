@@ -1,5 +1,11 @@
 <h1>Animals</h1>
 
+<p class = "btn--wrapper"
+>
+<a class="btn btn--action" href="animals/new">Add a New Animal</a>
+
+<a class="btn btn--action" href="animals/delete">Delete an Animal</a>
+
 <table>
 <tr>
 <th>Name</th>
@@ -11,8 +17,12 @@
 <tr>
 <td><%= animal.name %></td>
 <td><%= animal.admission_date%></td>
-<td><%= animal.adoptable ? "Yes" : "No" %></td>
+<td><%= animal.adoptable.to_s == "t" ? "Yes" : "No"%></td>
 <td><%= animal.type %></td>
 </tr>
+
+
 <%end%>
 </table>
+
+

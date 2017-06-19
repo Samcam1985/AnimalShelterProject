@@ -1,19 +1,18 @@
 <h1>Adoptions</h1>
 
 <p class="btn--wrapper">
-<a class="btn btn--action" href="/adoptions/new">New Adoption</a>
+<a class="btn btn--action" href="/adoptions/new">Add a New Adoption</a>
+
+<a class="btn btn--action" href="adoptions/delete">Delete an Adoption</a>
 </p>
 
 <ul>
+
 <% for adoption in @adoptions %>
 <li>
 <p><%= adoption.animal.name%> <%= adoption.owner.name%> </p>
-<p>
-<form action="/adoptions/<%=adoption.id %>delete" method="POST">
-<input class="btn btn--new"
-type="submit" value="delete" />
-</form>
-</p>
+
 </li>
 <%end%>
 </ul>
+

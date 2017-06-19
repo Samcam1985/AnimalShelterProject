@@ -1,3 +1,5 @@
+require('sinatra')
+require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/owner.rb')
 require_relative('../models/animal.rb')
@@ -19,25 +21,20 @@ post '/owners' do
   redirect to("/owners")
 end
 
+post '/owners/new' do
+  @owner = Owner.new( params )
+  @owner.save()
+  erb( :create)
+  
+end
+
 post '/owners/:id/delete' do
   Owner.destroy(params[:id])
   redirect to("/owners")
 end
 
 
-post '/owners/new' do
-  @owner = Owner.new( params )
-  @owner.save()
-  erb( :create)
-end
-
-# get '/owners/:id/edit' do
-#   @owner = Owner.find(params["id"])
-#   @adoption = Adoption.all()
-#   erb(:edit)
-# end
-
-# get '/owners/:id' do 
-#   @owner = Owner.find( params[:id])
-#   erb( :show)
-#   end
+get '/owners/:id' do 
+  @owner = Owner.find( params[:id])
+  erb( :show)
+  end

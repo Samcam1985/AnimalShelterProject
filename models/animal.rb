@@ -16,7 +16,7 @@ end
 def save()
   sql = "INSERT INTO animals (name, admission_date, adoptable, type) 
   VALUES (
-  '#{@name}', '#{@admission_date}', '#{@adoptable}', '#{@type}')
+  '#{@name}', '#{@admission_date}', #{@adoptable}, '#{@type}')
   RETURNING *"
   results = SqlRunner.run(sql)
   @id = results.first()['id'].to_i
@@ -43,6 +43,12 @@ def self.not_adoptable
   sql = "SELECT * FROM animals WHERE adoptable = 'FALSE'"
   not_adoptable_animals = SqlRunner.run(sql)
   return not_adoptable_animals.map { |hash| Animal.new(hash)}
+end
+
+def self.find(id)
+  sql = "SELECT * FROM animals WHERE id=#{id};"
+  results = SqlRunner.run(sql)
+  return Animal.new(results.first)
 end
 
 

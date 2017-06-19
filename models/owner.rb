@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry')
 
 class Owner
 
@@ -28,5 +29,11 @@ end
 def self.delete_all
   sql = "DELETE FROM owners"
   SqlRunner.run(sql)
+end
+
+def self.find(id)
+  sql = "SELECT * FROM owners WHERE id=#{id};"
+  results = SqlRunner.run(sql)
+  return Owner.new(results.first)
 end
 end

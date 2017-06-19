@@ -15,6 +15,7 @@ id SERIAL4 PRIMARY KEY,
 name VARCHAR(255),
 admission_date DATE,
 adoptable BOOLEAN,
+type VARCHAR(255)
 );
 
 CREATE TABLE adoptions
