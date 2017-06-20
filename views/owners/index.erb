@@ -5,14 +5,18 @@
 </p>
 </div>
 
-<div style="border:1px solid #CCCCCC;padding:15px;">
-  <% for owner in @owners %>
-    <div>
-     <span style="font-size:15pt; font-weight:bold; color:#006666;">Owner Name</span>
-     <p><%= owner.name%></p> 
-     <form action="/owners/<%=owner.id %>/delete" method="POST">
-     <input class="btn btn--delete" type="submit" value="Delete" />
-     </form>
-     </div>
-     <%end%>
-     </div>
+<table>
+<tr>
+<th>Owner Name</th>
+<th></th>
+<th>Delete</th>
+</tr>
+<%for owner in @owners %>
+<tr>
+<td><%= owner.name %></td>
+<td></td>
+<td><form action="/owners/<%=owner.id %>/delete" method="POST">
+     <input class="btn btn--delete" type="submit" value="Delete" /></td></form></td>
+     </tr>
+     <% end %>
+     </table>

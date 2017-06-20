@@ -1,7 +1,5 @@
 <h1>Adoptions</h1>
 
-
-
 <div>
 
 <p class="btn--wrapper">
@@ -11,10 +9,11 @@
 
 <table>
 <tr>
-<th>Animal Name</th>
+<th>Animal</th>
 <th></th>
-<th>Owner Name</th>
+<th>Owner</th>
 <th></th>
+<th>Adoption Date</th>
 <th>Delete</th>
 </tr>
 <% for adoption in @adoptions %>
@@ -23,9 +22,14 @@
 <td></td>
 <td><%= adoption.owner.name %></td>
 <td></td>
+<td><%=adoption.date_of_adoption %></td>
 <td><form action="/adoptions/<%=adoption.id %>/delete" method="POST">
-      <input class="btn btn--delete" type="submit" value="delete" /></form></td>
+      <input class="btn btn--delete" type="submit" value="delete" />
+      <input type="hidden" name="animal_id" value="<%=adoption.animal_id %>" />
+      </form></td>
       </tr>
       <% end %>
       </table>
+
+
 

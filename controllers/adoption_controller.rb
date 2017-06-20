@@ -25,11 +25,9 @@ post '/adoptions' do
 end
 
 post '/adoptions/:id/delete' do
-  # Adoption.delete(params[:id])
   @adoption = Adoption.new( params )
   @adoption.delete(params[:id])
   @adoption.update(params[:animal_id], true)
-  #Adoption.update(params[:animal_id], true)
   redirect to("/adoptions")
 end
 
