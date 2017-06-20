@@ -1,9 +1,18 @@
 <h1>Animals</h1>
 
+<div>
+
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/animals/new">Add a New Animal</a>
+</p>
+</div>
+
 
 <table>
   <tr>
     <th>Animal Name</th>
+    <th></th>
+    <th>Admission Date</th>
     <th></th>
     <th>Available for Adoption</th>
     <th></th>
@@ -14,6 +23,8 @@
   <% for animal in @animals %>
   <tr>
     <td><%= animal.name %></td>
+    <td></td>
+    <td><%=animal.admission_date%></td>
     <td></td>
     <td><%= animal.adoptable.to_s == "t" ? "Yes" : "No" %></td>
     <td></td>

@@ -9,18 +9,23 @@
 </p>
 </div>
 
-<div>
-  <% for adoption in @adoptions %>
-    <div>
-      <span style="font-size:15pt; font-weight:bold; color:#006666;">Animal</span>
-      <p><%= adoption.animal.name%></p>
-      <span style="font-size:15pt; font-weight:bold; color:#006666;">Owner</span>
-        <p><%= adoption.owner.name%></p>
-      <form action="/adoptions/<%=adoption.id %>/delete" method="POST">
-      <input class="btn btn--delete" type="submit" value="delete" />
-      <input type="hidden" name="animal_id" value="<%=adoption.animal_id %>" />
-      </form>
-    </div>
-  <%end%>
-</div>
+<table>
+<tr>
+<th>Animal Name</th>
+<th></th>
+<th>Owner Name</th>
+<th></th>
+<th>Delete</th>
+</tr>
+<% for adoption in @adoptions %>
+<tr>
+<td><%= adoption.animal.name %></td>
+<td></td>
+<td><%= adoption.owner.name %></td>
+<td></td>
+<td><form action="/adoptions/<%=adoption.id %>/delete" method="POST">
+      <input class="btn btn--delete" type="submit" value="delete" /></form></td>
+      </tr>
+      <% end %>
+      </table>
 
