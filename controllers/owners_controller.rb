@@ -36,7 +36,8 @@ end
 
 get '/owners/:id' do 
   @owner = Owner.find( params[:id])
-  erb( :owners)
+  @adoptions = Adoption.find_by_owner_id( params[:id])
+  erb( :"owners/show")
   end
 
 

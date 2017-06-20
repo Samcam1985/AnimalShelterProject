@@ -1,2 +1,6 @@
 <p>Owner Name: <%= @owner.name %></p>
-<p>Adopted Animals <%= @adoption.animals %></p>
+<p>Adopted Animals</p>
+
+<%for adoption in @adoptions%>
+<p><%=adoption.animal_name%></p>
+<%end%>
