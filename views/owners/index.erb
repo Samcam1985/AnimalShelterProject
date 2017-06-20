@@ -13,7 +13,7 @@
 </tr>
 <%for owner in @owners %>
 <tr>
-<td><a href="#owner_name">"owner.name"</a>
+<td><a href="#owner_name"><%=owner.name%></a>
 </td>
 <td></td>
 <td><form action="/owners/<%=owner.id %>/delete" method="POST">
