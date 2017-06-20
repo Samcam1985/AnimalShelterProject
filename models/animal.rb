@@ -30,7 +30,7 @@ def save()
 end
 
 def self.all()
-  sql = "SELECT * FROM animals";
+  sql = "SELECT * FROM animals WHERE adoptable = 'TRUE' AND id not IN (SELECT animal_id FROM adoptions)";
   results = SqlRunner.run(sql)
   return results.map { |hash| Animal.new(hash)}
 end
