@@ -27,7 +27,6 @@ end
 post '/adoptions/:id/delete' do
   @adoption = Adoption.new( params )
   @adoption.delete(params[:id])
-  @adoption.update(params[:animal_id], true)
   redirect to("/adoptions")
 end
 
@@ -35,7 +34,6 @@ end
 post '/adoptions/new' do
   @adoption = Adoption.new( params )
   @adoption.save()
-  @adoption.update(params[:animal_id], false)
   erb( :"/adoptions/confirmation")
 end
 

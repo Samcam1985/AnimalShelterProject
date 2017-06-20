@@ -18,6 +18,8 @@
     <th></th>
     <th>Type</th>
     <th></th>
+    <th>Adoption Status</th>
+    <th></th>
     <th>Delete</th>
   </tr>
   <% for animal in @animals %>
@@ -29,6 +31,8 @@
     <td><%= animal.adoptable.to_s == "t" ? "Yes" : "No" %></td>
     <td></td>
     <td><%=animal.type%></td>
+    <td></td>
+    <td><%=animal.adoption_status%></td>
     <td></td>
     <td><form action="/animals/<%=animal.id %>/delete" method="POST">
       <input class="btn btn--delete" type="submit" value="delete" /></form></td>

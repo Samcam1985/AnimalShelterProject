@@ -2,13 +2,20 @@ require_relative('../db/sql_runner')
 
 class Animal
 
-  attr_reader( :id, :name, :admission_date, :adoptable, :type)
+  attr_reader( :id, :name, :admission_date, :adoptable, :adoption_status, :type)
 
 def initialize(options)
   @id = options['id'].to_i
   @name = options['name']
   @admission_date = options['admission_date']
   @adoptable = options['adoptable']
+
+  if options['owner_id'] 
+    @adoption_status = 'Adopted'
+  else
+    @adoption_status = 'Not Adopted'
+  end
+  
   @type = options['type']
   
 end
@@ -23,7 +30,14 @@ def save()
 end
 
 def self.all()
-  sql = "SELECT * FROM animals"
+  sql = "SELECT * FROM animals";
+  results = SqlRunner.run(sql)
+  return results.map { |hash| Animal.new(hash)}
+end
+
+def self.animal_status()
+  sql = "SELECT * FROM animals LEFT JOIN adoptions ON adoptions.animal_id = animals.id"
+
   results = SqlRunner.run(sql)
   return results.map { |hash| Animal.new(hash)}
 end
@@ -56,6 +70,7 @@ def self.animals_not_adopted
   animals_not_adopted = SqlRunner.run(sql)
   return animals_not_adopted.map { |hash| Animal.new(hash)}
 end
+
 
 def self.find(id)
   sql = "SELECT * FROM animals WHERE id=#{id};"
