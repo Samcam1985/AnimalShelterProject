@@ -1,26 +1,27 @@
 <h1>Animals</h1>
 
-<div>
-<p class="btn--wrapper">
-  <a class="btn btn--action" href="/animals/new">Add a New Animal</a>
-</p>
-</div>
 
-<div style="border:1px solid #CCCCCC;padding:15px;">
+<table>
+  <tr>
+    <th>Animal Name</th>
+    <th></th>
+    <th>Available for Adoption</th>
+    <th></th>
+    <th>Type</th>
+    <th></th>
+    <th>Delete</th>
+  </tr>
   <% for animal in @animals %>
-    <div>
-      <span style="font-size:15pt; font-weight:bold; color:#006666;">Animal Name</span>
-      <p><%= animal.name%></p>
-      <span style="font-size:15pt; font-weight:bold; color:#006666;">Available for Adoption</span>
-        <p><%= animal.adoptable.to_s == "t" ? "Yes" : "No"%></p>
-        <span style="font-size:15pt; font-weight:bold; color:#006666;">Type</span>
-          <p><%= animal.type%></p>
-      <form action="/animals/<%=animal.id %>/delete" method="POST">
-      <input class="btn btn--delete" type="submit" value="delete" />
-      </form>
-    </div>
-  <%end%>
-</div>
-
-
+  <tr>
+    <td><%= animal.name %></td>
+    <td></td>
+    <td><%= animal.adoptable.to_s == "t" ? "Yes" : "No" %></td>
+    <td></td>
+    <td><%=animal.type%></td>
+    <td></td>
+    <td><form action="/animals/<%=animal.id %>/delete" method="POST">
+      <input class="btn btn--delete" type="submit" value="delete" /></form></td>
+  </tr>
+  <% end %>
+</table>
 
