@@ -15,6 +15,22 @@ get '/animals/new' do
   erb (:"animals/new")
 end
 
+get '/animals/:action' do
+
+  #Check what action it is
+  #Is it 'all' or 'adoptable' or 'non-adoptable'
+  #Use a case statement instead of if statements
+  if params[:action] == 'adoptable'
+    @animals = Animal.adoptable
+  elsif params[:action] == 'non-adoptable'
+    @animals = Animal.not_adoptable
+  else
+    @animals = Animal.animal_status
+  end
+
+  erb (:"animals/index")
+end
+
 post '/animals' do
   animal = Animal.new(params)
   animal.save

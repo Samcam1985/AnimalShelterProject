@@ -36,8 +36,7 @@ def self.all()
 end
 
 def self.animal_status()
-  sql = "SELECT * FROM animals LEFT JOIN adoptions ON adoptions.animal_id = animals.id"
-
+  sql = "SELECT animals.*, adoptions.owner_id FROM animals LEFT JOIN adoptions ON adoptions.animal_id = animals.id"
   results = SqlRunner.run(sql)
   return results.map { |hash| Animal.new(hash)}
 end
