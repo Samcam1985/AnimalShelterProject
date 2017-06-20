@@ -22,7 +22,7 @@ post '/animals' do
 end
 
 post '/animals/:id/delete' do
-  Animal.destroy(params[:id])
+  Animal.delete(params[:id])
   redirect to("/animals")
 end
 

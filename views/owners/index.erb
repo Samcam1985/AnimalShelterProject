@@ -1,17 +1,18 @@
 <h1>Owners</h1>
-
+<div>
 <p class = "btn--wrapper">
 <a class="btn btn--action" href="owners/new"> Add a New Owner</a>
+</p>
+</div>
 
-
-
-<table>
-<tr>
-<th>Name</th>
-</tr>
-<% for owner in @owners %>
-<tr>
-<td><%= owner.name %></td> <td><a class="btn btn--action" href="owners/<%=owner.id%>/delete">Delete</a></td>
-</tr>
-<%end%>
-</table>
+<div style="border:1px solid #CCCCCC;padding:15px;">
+  <% for owner in @owners %>
+    <div>
+     <span style="font-size:15pt; font-weight:bold; color:#006666;">Owner Name</span>
+     <p><%= owner.name%></p> 
+     <form action="/owners/<%=owner.id %>/delete" method="POST">
+     <input class="btn btn--delete" type="submit" value="Delete" />
+     </form>
+     </div>
+     <%end%>
+     </div>

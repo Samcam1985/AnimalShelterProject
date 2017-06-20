@@ -63,6 +63,10 @@ def self.find(id)
   return Animal.new(results.first)
 end
 
+def self.delete(id)
+  sql = "DELETE FROM animals where id =#{id}"
+  SqlRunner.run(sql)
+end
 
 
 end
