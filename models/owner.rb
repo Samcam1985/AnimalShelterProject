@@ -3,12 +3,11 @@ require('pry')
 
 class Owner
 
-  attr_reader( :id, :name)
+  attr_reader( :id, :name, :address, :telephone_number, :about_owner)
 
 def initialize(options)
   @id = options['id'].to_i
-  @first_name = options['first_name']
-  @surname = options['surname']
+  @name = options['name']
   @address = options['address']
   @telephone_number = options['telephone_number']
   @about_owner = options['about_owner']
@@ -16,9 +15,9 @@ def initialize(options)
 end
 
 def save()
-  sql = "INSERT INTO owners (name) 
+  sql = "INSERT INTO owners (name, address, telephone_number, about_owner) 
   VALUES (
-  '#{@name}')
+  '#{@name}', '#{@address}', '#{@telephone_number}', '#{@about_owner}')
   RETURNING *"
   results = SqlRunner.run(sql)
   @id = results.first()['id'].to_i

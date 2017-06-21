@@ -7,38 +7,32 @@
 </ul>
 
 </div>
-<table>
+<div class="table_div">
+<table id="owners">
+<thead>
 <tr>
-<th>Full Name</th>
-<th></th>
-<th>Address</th>
+<th>Name</th>
 <th></th>
 <th>Telephone Number</th>
 <th></th>
-<th>About Owner</th>
-<th></th>
 <th>Delete</th>
 </tr>
+</thead>
+<tbody>
 <%for owner in @owners %>
 <tr>
-<td><a href="/owners/<%=owner.id%>"><%=owner.fullname%></a>
+<td><a href="/owners/<%=owner.id%>"><%=owner.name%></a>
 </td>
-<td><%=owner.address%></td>
-<td></td>
-<td><%=owner.telephone_number%></td>
-<td></td>
-<td><%=owner.about_owner%></td>
-<td></td>
+
+<td><%= owner.telephone_number%></td>
+
 <td><form action="/owners/<%=owner.id %>/delete" method="POST">
      <input class="btn btn--delete" type="submit" value="Delete" /></td></form></td>
      </tr>
      <% end %>
+     </tbody>
      </table>
+</div>
 
 
-     @id = options['id'].to_i
-     @first_name = options['first_name']
-     @surname = options['surname']
-     @address = options['address']
-     @telephone_number = options['telephone_number']
-     @about_owner = options['about_owner']
+     

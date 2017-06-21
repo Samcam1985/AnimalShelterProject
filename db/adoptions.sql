@@ -6,7 +6,10 @@ DROP TABLE animals;
 CREATE TABLE owners
 (
 id SERIAL4 PRIMARY KEY,
-name VARCHAR(255)
+name VARCHAR(255),
+address VARCHAR(255),
+telephone_number VARCHAR(255),
+about_owner VARCHAR(255)
 );
 
 CREATE TABLE animals

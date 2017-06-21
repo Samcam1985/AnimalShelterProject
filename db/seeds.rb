@@ -12,7 +12,7 @@ Owner.delete_all
 
 
 owner1 = Owner.new ({
-  'full_name' => "Sam Campbell",
+  'name' => "Sam Campbell",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Samantha Campbell, I live in a ground floor flat and am looking to give a home to an animal in need, preferably a cat as I am out all day."
@@ -21,7 +21,7 @@ owner1 = Owner.new ({
 owner1.save
 
 owner2 = Owner.new ({
-  'full_name' => "Bob Brown",
+  'name' => "Bob Brown",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Bob Brown, I live in a top floor flat and am looking for a cat to adopt."
@@ -30,7 +30,7 @@ owner2 = Owner.new ({
 owner2.save
 
 owner3 = Owner.new ({
-  'full_name' => "Justine Smith",
+  'name' => "Justine Smith",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Justine Smith, I live in a 3 bedroom house with a big garden. Would love to adopt a couple of dogs."
@@ -39,7 +39,7 @@ owner3 = Owner.new ({
 owner3.save
 
 owner4 = Owner.new ({
-  'full_name' => "Martin Jones",
+  'name' => "Martin Jones",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Martin Jones, I live in a 2 bedroom house with a small garden."
@@ -48,7 +48,7 @@ owner4 = Owner.new ({
 owner4.save
 
 owner5 = Owner.new ({
-  'full_name' => "Caroline Mitchell",
+  'name' => "Caroline Mitchell",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Caroline Mitchell, I live in a 4 bedroom house and would like to adopt a cat. I have 2 children and 2 cats already and would be interested in adopting another cat."
@@ -57,7 +57,7 @@ owner5 = Owner.new ({
 owner5.save
 
 owner6 = Owner.new ({
-  'full_name' => "Colin Stewart",
+  'name' => "Colin Stewart",
   'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
   'telephone_number' => "0131 290 2600",
   'about_owner' => "My name is Colin Stewart, I live in a ground floor flat on my own, I would love to adopt a dog to keep me company and allow me to take on long walks. Unfortunatly I cannot adopt cats as I am allergic."
@@ -65,41 +65,7 @@ owner6 = Owner.new ({
 
 owner6.save
 
-owner7 = Owner.new ({
-  'full_name' => "Sara Goodwin",
-  'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
-  'telephone_number' => "0131 290 2600",
-  'about_owner' => "My name is Sara Goodwin, I live in a cottage and am looking to give a home to an animal in need, I like both cats and dogs so would love to adopt either."
-  })
 
-owner7.save
-
-owner8 = Owner.new ({
-  'full_name' => "Andrew Conners",
-  'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
-  'telephone_number' => "0131 290 2600",
-  'about_owner' => "My name is Andrew Conners, I live in a 4 bedroom house and am looking to give a home to up to 3 dogs. I work in a vet and so am already familiar with the behaviours and needs of dogs."
-  })
-
-owner8.save
-
-owner9 = Owner.new ({
-  'full_name' => "Olivia Peters",
-  'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
-  'telephone_number' => "0131 290 2600",
-  'about_owner' => "My name is Olivia Peters, I live in a ground floor flat and am looking to give a home to an animal in need, preferably a cat as I am out all day."
-  })
-
-owner9.save
-
-owner10 = Owner.new ({
-  'full_name' => "Flora Stevens",
-  'address' => "Codeclan, 37 Castle Terrace, Edinburgh, EH1 2EL",
-  'telephone_number' => "0131 290 2600",
-  'about_owner' => "My name is Flora Stevens, I live in a ground floor flat and am looking to give a home to an dog in need. I work from home so would be willing to take in a puppy as I have time to train and walk it properly."
-  })
-
-owner10.save
 
 animal1 = Animal.new ({
   'name' => "Vigo",
@@ -166,7 +132,7 @@ adoption1.save
 adoption2 = Adoption.new ({
   'date_of_adoption' => "2017-06-18",
   'animal_id' => animal5.id,
-  'owner_id' => owner7.id
+  'owner_id' => owner2.id
   })
 
 adoption2.save
