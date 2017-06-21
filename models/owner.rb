@@ -7,7 +7,11 @@ class Owner
 
 def initialize(options)
   @id = options['id'].to_i
-  @name = options['name']
+  @first_name = options['first_name']
+  @surname = options['surname']
+  @address = options['address']
+  @telephone_number = options['telephone_number']
+  @about_owner = options['about_owner']
   
 end
 
