@@ -29,12 +29,14 @@ def save()
   @id = results.first()['id'].to_i
 end
 
+#used in drop down for animals available for adoption, if already adopted then cant be available to adopt.
 def self.all()
   sql = "SELECT * FROM animals WHERE adoptable = 'TRUE' AND id not IN (SELECT animal_id FROM adoptions)";
   results = SqlRunner.run(sql)
   return results.map { |hash| Animal.new(hash)}
 end
 
+#used for animals page, if animal has owner id then status will say adopted.
 def self.animal_status()
   sql = "SELECT animals.*, adoptions.owner_id FROM animals LEFT JOIN adoptions ON adoptions.animal_id = animals.id"
   results = SqlRunner.run(sql)
@@ -46,8 +48,9 @@ def self.delete_all
   SqlRunner.run(sql)
 end
 
+#if animal doesnt have an adoption id then it will and it is adoptable then it is adoptable.
 def self.adoptable
-  sql = "SELECT * FROM animals WHERE adoptable = 'TRUE'"
+  sql = "SELECT * FROM animals WHERE animals.id NOT IN (SELECT animal_id FROM adoptions) AND animals.adoptable = 'TRUE' "
   adoptable_animals = SqlRunner.run(sql)
   return adoptable_animals.map { |hash| Animal.new(hash)}
 end
@@ -58,24 +61,6 @@ def self.not_adoptable
   return not_adoptable_animals.map { |hash| Animal.new(hash)}
 end
 
-def self.animals_adopted
-  sql = "SELECT * FROM animals INNER JOIN adoptions ON animals.id = adoptions.animal_id"
-  animals_adopted = SqlRunner.run(sql)
-  return animals_adopted.map { |hash| Animal.new(hash)}
-end
-
-def self.animals_not_adopted
-  sql = "SELECT * FROM animals WHERE animals.id NOT IN (SELECT animal_id FROM adoptions)"
-  animals_not_adopted = SqlRunner.run(sql)
-  return animals_not_adopted.map { |hash| Animal.new(hash)}
-end
-
-
-def self.find(id)
-  sql = "SELECT * FROM animals WHERE id=#{id};"
-  results = SqlRunner.run(sql)
-  return Animal.new(results.first)
-end
 
 def self.delete(id)
   sql = "DELETE FROM animals where id =#{id}"

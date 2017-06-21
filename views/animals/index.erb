@@ -14,29 +14,19 @@
 <table>
   <tr>
     <th>Animal Name</th>
-    <th></th>
     <th>Admission Date</th>
-    <th></th>
-    <th>Available for Adoption</th>
-    <th></th>
+    <th>Adoptable</th>
     <th>Type</th>
-    <th></th>
     <th>Adoption Status</th>
-    <th></th>
     <th>Delete</th>
   </tr>
   <% for animal in @animals %>
   <tr>
     <td><%= animal.name %></td>
-    <td></td>
     <td><%=animal.admission_date%></td>
-    <td></td>
     <td><%= animal.adoptable.to_s == "t" ? "Yes" : "No" %></td>
-    <td></td>
     <td><%=animal.type%></td>
-    <td></td>
     <td><%=animal.adoption_status%></td>
-    <td></td>
     <td><form action="/animals/<%=animal.id %>/delete" method="POST">
       <input class="btn btn--delete" type="submit" value="delete" /></form></td>
   </tr>

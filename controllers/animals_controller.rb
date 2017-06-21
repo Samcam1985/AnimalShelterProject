@@ -31,11 +31,6 @@ get '/animals/:action' do
   erb (:"animals/index")
 end
 
-post '/animals' do
-  animal = Animal.new(params)
-  animal.save
-  redirect to("/animals")
-end
 
 post '/animals/:id/delete' do
   Animal.delete(params[:id])
