@@ -11,19 +11,14 @@
 <table>
 <tr>
 <th>Animal</th>
-<th></th>
 <th>Owner</th>
-<th></th>
 <th>Adoption Date</th>
-<th></th>
 <th>Delete</th>
 </tr>
 <% for adoption in @adoptions %>
 <tr>
 <td><%= adoption.animal.name %></td>
-<td></td>
 <td><%= adoption.owner.name %></td>
-<td></td>
 <td><%=adoption.date_of_adoption %></td>
 <td><form action="/adoptions/<%=adoption.id %>/delete" method="POST">
       <input class="btn btn--delete" type="submit" value="delete" />
