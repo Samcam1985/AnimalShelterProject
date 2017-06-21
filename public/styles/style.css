@@ -8,7 +8,7 @@ html
   font-family: verdana;
 }
 
-nav
+#navigation
 {
 
   margin:0 auto;
@@ -16,6 +16,11 @@ nav
   height:55px;
   text-align: center;
 
+}
+
+nav ul
+{
+  text-align: center;
 }
 
 
@@ -35,7 +40,11 @@ ul li a
   text-decoration: none;
   color:#fff;
   font-size: 18px;
+  text-align: center;
+  margin:0 auto;
 }
+
+
 
 td {
 text-align: center;
@@ -59,5 +68,9 @@ text-align: center;
 
 p {
 
+  text-align: center;
+}
+
+ul button center {
   text-align: center;
 }
