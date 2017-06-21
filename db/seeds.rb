@@ -106,7 +106,7 @@ animal4.save
 animal5 = Animal.new ({
   'name' => "Zak",
   'admission_date' => "2017-06-01",
-  'adoptable' => "FALSE",
+  'adoptable' => "TRUE",
   'type' => "Dog"
   })
 
