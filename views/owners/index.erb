@@ -13,6 +13,7 @@
 <thead>
 <tr>
 <th>Name</th>
+<th>Address</th>
 <th>Telephone Number</th>
 <th>Delete</th>
 </tr>
@@ -22,7 +23,9 @@
 <tr>
 <td><a href="/owners/<%=owner.id%>"><%=owner.name%></a>
 </td>
+<td><%= owner.address%></td>
 <td><%= owner.telephone_number%></td>
+
 
 
 <td><form action="/owners/<%=owner.id %>/delete" method="POST">
